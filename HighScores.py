@@ -37,7 +37,7 @@ class HighScores(object):
             print(score_line.format(name=name, score=score))
 
 if __name__ == '__main__':  # this is run on run only
-    high_scores = HighScores('testing1')
+    high_scores = HighScores('testing')
     # raw_input used only for testing, normally use variables or values instead
     if high_scores.is_high_score(raw_input('Name: ').title(),
                                  int(raw_input('Score: '))):
