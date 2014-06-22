@@ -29,7 +29,8 @@ def is_high_score(name, score):
 
 def print_scores():
     score_line = '{{name:>{col_width}}} | {{score}}'.format(col_width=(80-3)//2)
-    for name, score in high_scores.items():
+    scores_sorted = sorted(zip(high_scores.values(), high_scores.keys()), reverse=True)
+    for score, name in scores_sorted:
         print(score_line.format(name=name, score=score))
 
 high_scores = load_scores()  # this is run on import and on run
