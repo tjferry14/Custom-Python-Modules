@@ -9,4 +9,3 @@ This module currently supports two main public functions:
 + `print_scores()` prints out a formatted list of all users with their high scores
 
 To Do: 
-- [ ] Move to a class-based implementation
