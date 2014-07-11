@@ -1,10 +1,36 @@
-import pickle
+import pickle, ui
+
+user_name = None
+
+class UserNameView(ui.View):
+    def __init__(self, default_user_name='anonymous'):
+        self.name = 'Enter your username:'
+        self.text_field = ui.TextField()
+        self.text_field.x = 175
+        self.text_field.height = 20
+        self.text_field.width = 200
+        self.text_field.text = default_user_name
+        self.button = ui.Button(title='OK', flex='LRTB')
+        self.button.center = self.center
+        self.button.action = self.button_tapped
+        self.add_subview(self.text_field)
+        self.add_subview(self.button)
+        self.present('sheet')
+        self.wait_modal()
+
+    def button_tapped(self, sender):
+        self.close()
+
+    def will_close(self):
+        global user_name
+        user_name = self.text_field.text
 
 class HighScores(object):
     def __init__(self, in_file_name = 'highscores'):
         self.file_name = in_file_name
-        if not self.file_name.endswith('.pkl'):
-            self.file_name += '.pkl'
+        file_ext = '.pkl'
+        if not self.file_name.endswith(file_ext):
+            self.file_name += file_ext
         self.high_scores = self.__load_scores()
 
     def __load_scores(self):  # private function
@@ -37,9 +63,13 @@ class HighScores(object):
             print(score_line.format(name=name, score=score))
 
 if __name__ == '__main__':  # this is run on run only
+    # trying to do raw_input _after_ ui is not working correctly
+    score = int(raw_input('Score: '))
+    while not user_name:
+        UserNameView()
+    #print(user_name)
+    
     high_scores = HighScores('testing')
-    # raw_input used only for testing, normally use variables or values instead
-    if high_scores.is_high_score(raw_input('Name: ').title(),
-                                 int(raw_input('Score: '))):
+    if high_scores.is_high_score(user_name, score):
         print('Congratulations on your new high score!')
     high_scores.print_scores()
