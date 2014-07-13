@@ -5,7 +5,7 @@ user_name = None
 class UserNameView(ui.View):
     def __init__(self, default_user_name='Name'):
         self.name = 'Enter your username:'
-        self.text_field = ui.TextField(frame=(155, 175, 199, 32))
+        self.text_field = ui.TextField(frame=(155, 175, 200, 32))
         self.text_field.text = default_user_name
         self.add_subview(self.text_field)
         button = ui.Button(title='OK',
