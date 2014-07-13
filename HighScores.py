@@ -6,14 +6,18 @@ class UserNameView(ui.View):
     def __init__(self, default_user_name='Name'):
         self.name = 'Enter your username:'
         self.text_field = ui.TextField()
-        self.text_field.x = 175
+        self.text_field.x = 155
         self.text_field.y = 175
-        self.text_field.height = 25
+        self.text_field.height = 32
         self.text_field.width = 200 
         self.text_field.text = default_user_name
-        self.button = ui.Button(title='OK', flex='LRTB')
-        self.button.center = self.center
+        self.button = ui.Button(title='OK')
+        self.button.x = 360
+        self.button.y = 175
+        self.button.height = 32
+        self.button.width = 75
         self.button.action = self.button_tapped
+        self.button.background_color = 'white'
         self.add_subview(self.text_field)
         self.add_subview(self.button)
         self.present('sheet')
