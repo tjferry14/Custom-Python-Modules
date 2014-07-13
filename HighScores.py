@@ -5,21 +5,14 @@ user_name = None
 class UserNameView(ui.View):
     def __init__(self, default_user_name='Name'):
         self.name = 'Enter your username:'
-        self.text_field = ui.TextField()
-        self.text_field.x = 155
-        self.text_field.y = 175
-        self.text_field.height = 32
-        self.text_field.width = 200 
+        self.text_field = ui.TextField(frame=(155, 175, 199, 32))
         self.text_field.text = default_user_name
-        self.button = ui.Button(title='OK')
-        self.button.x = 360
-        self.button.y = 175
-        self.button.height = 32
-        self.button.width = 75
-        self.button.action = self.button_tapped
-        self.button.background_color = 'white'
         self.add_subview(self.text_field)
-        self.add_subview(self.button)
+        button = ui.Button(title='OK',
+                           background_color='white',
+                           frame=(360, 175, 75, 32))
+        button.action = self.button_tapped
+        self.add_subview(button)
         self.present('sheet')
         self.wait_modal()
 
@@ -76,5 +69,5 @@ if __name__ == '__main__':  # this is run on run only
     
     high_scores = HighScores('testing')
     if high_scores.is_high_score(user_name, score):
-        print('Congratulations on your new high score!')
+        print('Congratulations {} on your new high score!'.format(user_name))
     high_scores.print_scores()
