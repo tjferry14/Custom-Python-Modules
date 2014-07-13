@@ -3,12 +3,13 @@ import pickle, ui
 user_name = None
 
 class UserNameView(ui.View):
-    def __init__(self, default_user_name='anonymous'):
+    def __init__(self, default_user_name='Name'):
         self.name = 'Enter your username:'
         self.text_field = ui.TextField()
         self.text_field.x = 175
-        self.text_field.height = 20
-        self.text_field.width = 200
+        self.text_field.y = 175
+        self.text_field.height = 25
+        self.text_field.width = 200 
         self.text_field.text = default_user_name
         self.button = ui.Button(title='OK', flex='LRTB')
         self.button.center = self.center
