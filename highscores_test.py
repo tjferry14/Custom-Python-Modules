@@ -1,6 +1,4 @@
 print('=' * 20)
-#import highscores
-#reload(highscores)  # This is a best practice
 import HighScores
 reload(HighScores)  # This is a best practice
 
