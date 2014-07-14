@@ -7,11 +7,12 @@ class UserNameView(ui.View):
         self.name = 'Enter your username:'
         self.text_field = ui.TextField(frame=(155, 175, 200, 32))
         self.text_field.text = default_user_name
+        self.text_field.clear_button_mode = 'while_editing'
         self.add_subview(self.text_field)
-        button = ui.Button(title='OK',
-                           background_color='white',
+        button = ui.Button(background_color='white',
                            frame=(360, 175, 75, 32))
         button.action = self.button_tapped
+        button.image = ui.Image('ionicons-arrow-right-a-24')
         self.add_subview(button)
         self.present('sheet')
         self.wait_modal()
@@ -65,7 +66,6 @@ if __name__ == '__main__':  # this is run on run only
     score = int(raw_input('Score: '))
     while not user_name:
         UserNameView()
-    #print(user_name)
     
     high_scores = HighScores('testing')
     if high_scores.is_high_score(user_name, score):
