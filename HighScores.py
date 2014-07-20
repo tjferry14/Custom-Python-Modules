@@ -12,10 +12,13 @@ class UserNameView(ui.View):
         button = ui.Button(background_color='white',
                            frame=(360, 175, 75, 32))
         button.action = self.button_tapped
-        button.image = ui.Image('ionicons-arrow-right-a-24')
         self.add_subview(button)
         self.present('sheet')
         self.wait_modal()
+
+    def draw(self):
+        img = ui.Image.named('ionicons-arrow-right-a-24')
+        img.draw(360, 175, 24, 24)
 
     def button_tapped(self, sender):
         self.close()
