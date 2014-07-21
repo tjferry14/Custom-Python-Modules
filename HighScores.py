@@ -17,11 +17,11 @@ class UserNameView(ui.View):
         self.text_field.clear_button_mode = 'while_editing'
         self.add_subview(self.text_field)
         button = ui.Button(background_color='white',
-                   frame=(360, 175, 75, 36),
+                   frame=(360, 175, 75, 32),
                    image=ui.Image.named('ionicons-arrow-right-a-32'))
         button.action = self.button_tapped
         self.add_subview(button)
-        self.present(style='sheet', hide_title_bar=True)
+        self.present(style='sheet', hide_title_bar=True) # dismiss it with a two-finger swipe down gesture
         self.wait_modal()
 
     def button_tapped(self, sender):
