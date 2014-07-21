@@ -5,16 +5,23 @@ user_name = None
 class UserNameView(ui.View):
     def __init__(self, default_user_name='Name'):
         self.name = 'Enter your username:'
+        self.background_color = 0.40, 0.80, 1.00
+        self.label = ui.Label(frame=(12, 100, 2000, 55))
+        self.label.text = 'What is your name?'
+        self.label.text_color = 0.00, 0.00, 0.00
+        self.label.font = ('Avenir-Black', 55)
+        self.add_subview(self.label)
         self.text_field = ui.TextField(frame=(155, 175, 200, 32))
         self.text_field.text = default_user_name
+        self.text_field.text_color = 0.50, 0.50, 0.50
         self.text_field.clear_button_mode = 'while_editing'
         self.add_subview(self.text_field)
         button = ui.Button(background_color='white',
-                   frame=(360, 175, 75, 32),
+                   frame=(360, 175, 75, 36),
                    image=ui.Image.named('ionicons-arrow-right-a-32'))
         button.action = self.button_tapped
         self.add_subview(button)
-        self.present('sheet')
+        self.present(style='sheet', hide_title_bar=True)
         self.wait_modal()
 
     def button_tapped(self, sender):
