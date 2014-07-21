@@ -10,15 +10,12 @@ class UserNameView(ui.View):
         self.text_field.clear_button_mode = 'while_editing'
         self.add_subview(self.text_field)
         button = ui.Button(background_color='white',
-                           frame=(360, 175, 75, 32))
+                   frame=(360, 175, 75, 32),
+                   image=ui.Image.named('ionicons-arrow-right-a-24'))
         button.action = self.button_tapped
         self.add_subview(button)
         self.present('sheet')
         self.wait_modal()
-
-    def draw(self):
-        img = ui.Image.named('ionicons-arrow-right-a-24')
-        img.draw(360, 175, 24, 24)
 
     def button_tapped(self, sender):
         self.close()
