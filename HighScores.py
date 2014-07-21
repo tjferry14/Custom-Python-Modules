@@ -11,7 +11,7 @@ class UserNameView(ui.View):
         self.add_subview(self.text_field)
         button = ui.Button(background_color='white',
                    frame=(360, 175, 75, 32),
-                   image=ui.Image.named('ionicons-arrow-right-a-24'))
+                   image=ui.Image.named('ionicons-arrow-right-a-32'))
         button.action = self.button_tapped
         self.add_subview(button)
         self.present('sheet')
