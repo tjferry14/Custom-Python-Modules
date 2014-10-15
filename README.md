@@ -1,9 +1,7 @@
 HighScores
 ==========
 
-High Scores module for Python, by Tj Ferry.
-
-Special thanks to [cclauss][1] for his contributions. 
+High Scores module mainly for games, Special thanks to [cclauss][1] for his contributions. 
 
 This module contains a HighScores class that supports three main public methods:
 + `__init__([file_name])` which takes an optional name for the file used to record the high scores.
